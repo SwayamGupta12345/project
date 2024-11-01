@@ -312,16 +312,25 @@ $conn->close();
         }
 
         function toggleDropdown() {
-            document.querySelector(".user-dropdown").classList.toggle("show");
-        }
+            const dropdown = document.getElementById('dropdown-content');
+            dropdown.classList.toggle('show');
+        }   
 
-        // Close the dropdown if clicked outside the email and dropdown content
+
         window.onclick = function(event) {
             const emailElement = document.querySelector('.user-email');
             const dropdown = document.getElementById('dropdown-content');
+            const burgerMenu = document.getElementById('burger-menu');
+            const navLinks = document.getElementById('nav-links');
     
-            if (!emailElement.contains(event.target) && !dropdown.contains(event.target)) {
+            // Close dropdown if clicking outside of email and dropdown
+            if (dropdown.classList.contains('show') && !emailElement.contains(event.target) && !dropdown.contains(event.target)) {
                 dropdown.classList.remove('show');
+            }
+    
+            // Close nav-links if clicking outside of burger icon and nav-links
+            if (navLinks.classList.contains('show') && !burgerMenu.contains(event.target) && !navLinks.contains(event.target)) {
+                navLinks.classList.remove('show');
             }
         };
 
@@ -329,10 +338,11 @@ $conn->close();
             document.getElementById('nav-links').classList.toggle('show');
         });
 
-        document.getElementById('burger-menu').addEventListener('click', function (event) {
-            event.stopPropagation(); // Prevent click from propagating to the document
+        document.getElementById('burger-menu').addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevent click from propagating
             document.getElementById('nav-links').classList.toggle('show');
         });
+
         
         // Close the menu when clicking outside the burger menu or nav-links
         document.addEventListener("DOMContentLoaded", function() {
