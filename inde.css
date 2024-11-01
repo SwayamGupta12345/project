@@ -1,3 +1,32 @@
+:root {
+    /* Background Colors */
+    --background-main: #F7F9F9;
+    --background-header-footer: #2E4053;
+    --background-button: #D4AC0D;
+    --background-input: #AAB7B8;
+    --background-card: #FFFFFF;
+    --background-dropdown: #FFFFFF;
+    --background-nav-links-mobile: #AAB7B8;
+    --background-nav-link-hover: rgba(247, 249, 249, 0.2);
+    
+    /* Text Colors */
+    --text-primary: #34495E;
+    --text-light: #F7F9F9;
+    --text-dropdown: #2E4053;
+    --text-link: #D4AC0D;
+    --text-link-hover: #2E4053;
+    --text-card: #555;
+
+    /* Border Colors */
+    --border-primary: #34495E;
+    --border-card: #AAB7B8;
+    --border-dropdown: #AAB7B8;
+
+    /* Shadow Colors */
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: rgba(0, 0, 0, 0.2);
+}
+
 * {
     box-sizing: border-box;
     /* Include padding and border in element's total width and height */
@@ -8,10 +37,10 @@
 }
 
 body {
-    background-color: #caf0f8;
+    background-color: var(--background-main);
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #03045e;
+    color: var(--text-primary);
     overflow-x: hidden;
 }
 hr{
@@ -20,21 +49,21 @@ hr{
 }
 /* Header Styling */
 header {
-    background-color: #03045e;
-    color: white;
+    background-color: var(--background-header-footer);
+    color: var(--text-light);
     padding: 10px 0;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px var(--box-shadow-color);
     text-align: center;
     top: 0;
     width: 100%;
     z-index: 10;
 }
 h1, h2, h3 {
-    color: #0077B6; /* Medium blue for headings */
+    color: var(--text-primary); /* Medium blue for headings */
 }
 button {
-    background-color: #00B4D8; /* Light blue for button background */
-    color: white;
+    background-color: var(--background-button); /* Light blue for button background */
+    color: var(--text-light);
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -43,29 +72,29 @@ button {
 }
 
 button:hover {
-    background-color: #0077B6; /* Darker blue on hover */
+    background-color: var(--text-link-hover); /* Darker blue on hover */
 }
 input, select, textarea {
-    background-color: #90E0EF; /* Aqua blue for input backgrounds */
-    color: #03045E;
-    border: 1px solid #0077B6;
+    background-color: var(--background-input); /* Aqua blue for input backgrounds */
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
     padding: 8px;
     border-radius: 5px;
     margin: 10px 0;
 }
 
 a {
-    color: #0077B6;
+    color: var(--text-link);
     text-decoration: none;
 }
 
 a:hover {
-    color: #00B4D8;
+    color: var(--text-link-hover);
 }
 
 footer {
-    background-color: #03045E;
-    color: white;
+    background-color: var(--background-main);
+    color: var(--border-primary);
     text-align: center;
     padding: 10px;
     /*position: fixed;*/
@@ -75,8 +104,8 @@ footer {
 
 /* Card or Section Styling */
 .section {
-    background-color: #CAF0F8;
-    border: 1px solid #0077B6;
+    background-color: var(--background-main);
+    border: 1px solid var(--border-primary);
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
@@ -86,7 +115,7 @@ header h1 {
     font-size: 2em;
     margin: 0;
     font-weight: bold;
-    color: #ffffff;
+    color: var(--text-light);
     letter-spacing: 1px;
 }
 nav {
@@ -94,10 +123,10 @@ nav {
     justify-content: center;
     align-items: center;
     position: sticky;
-    background-color: #007bff;
+    background-color: var(--text-link-hover);
     height: 4rem;
     padding: 0 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--box-shadow-color);
 }
 /* Style for navigation links */
 .nav-links {
@@ -111,21 +140,22 @@ nav {
 .nav-links select {
     padding: 5px;
     font-size: 1em;
-    color: #333;
-    background-color: white;
-    border: 1px solid #ccc;
+    color: var(--text-primary);
+    background-color: var(--background-dropdown);
+    border: 1px solid var(--border-dropdown);
     border-radius: 5px;
 }
 
 .nav-links a {
-    color: white;
+    color: var(--text-light);
     text-decoration: none;
     padding: 5px 10px;
     border-radius: 4px;
 }
 
 .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color:white;
+    color: black;
 }
 
 /* Mobile View for Header */
@@ -154,7 +184,7 @@ nav {
 }
 
 .user-email {
-    color: white;
+    color: var(--text-light);
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 4px;
@@ -162,7 +192,7 @@ nav {
 }
 
 .user-email:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--background-nav-link-hover);
 }
 
 /* Dropdown content initially hidden */
@@ -170,10 +200,13 @@ nav {
     margin-top: 20px;
     display: none;
     position: absolute;
-    background-color: white;
-    color: #333;
+    border-style: solid;
+    border-color:var(--border-dropdown);
+    justify-content: center;
+    background-color: var(--background-dropdown);
+    color: var(--text-dropdown);
     min-width: 220px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px var(--box-shadow-color);
     border-radius: 50px;
     z-index: 5;
 }
@@ -182,17 +215,17 @@ nav {
 }
 /* Links within the dropdown */
 .dropdown-content a {
-    color: #333;
+    color: var(--text-primary);
     padding: 10px;
     display: block;
     text-decoration: none;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--border-dropdown);
 }
 
 .dropdown-content a:hover {
-    background-color: #007bff;
-    color: white;
+    background-color: var(--background-button);
+    color: var(--text-light);
     border-radius: 50px;
 }
 
@@ -207,9 +240,9 @@ nav {
     max-width: 200px;
     padding: 10px;
     font-size: 16px;
-    color: #333;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    color: var(--text-primary);
+    background-color: var(--background-dropdown);
+    border: 1px solid var(--border-dropdown);
     border-radius: 5px;
     margin-top: 5px;
     cursor: pointer;
@@ -217,20 +250,20 @@ nav {
 }
 
 #semester-menu:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    border-color: var(--text-link-hover);
+    box-shadow: 0 0 5px var(--box-shadow-color);
 }
 
 #semester-menu option {
     padding: 10px;
     color: #333;
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
+    background-color: var(--background-dropdown);
+    border-bottom: 1px solid var(--border-dropdown);
 }
 
 nav a {
     text-decoration: none;
-    color: #fff;
+    color: var(--text-light);
     padding: 0.5rem 1rem;
     font-size: 1rem;
     transition: color 0.3s ease;
@@ -238,13 +271,14 @@ nav a {
 
 nav a.home {
     margin-right: auto;
-    padding-left: 3rem;
+    padding-left: 1rem;
     font-weight: 900;
     letter-spacing: 1px;
 }
 
 nav a:hover {
-    color: #201c21;
+    color: var(--text-link-hover);
+    background-color: white;
 }
 
 .burger {
@@ -260,14 +294,13 @@ nav a:hover {
 }
 
 .burger div {
-    background-color: #fff;
+    background-color: var(--text-light);
     height: 0.25rem;
     width: 1.5rem;
     margin: 0.2rem 0;
     border-radius: 0.1rem;
     transition: 0.3s ease;
 }
-
 
 .container {
     display: grid;
@@ -293,22 +326,22 @@ nav a:hover {
 }
 
 .sems {
-    background: #0077B6;
+    background: var(--background-button);
     height: 3.5rem;
     width: 100%;
-    border: 3px solid white;
+    border: 3px solid var(--text-light);
     border-radius: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2rem 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--box-shadow-color);
 }
 
 .SEMTEXT {
     text-align: center;
     font-size: 1.25rem;
-    color: #fff;
+    color: var(--text-light);
     font-weight: bold;
 }
 
@@ -321,9 +354,11 @@ nav a:hover {
 }
 
 .card {
-    background: #fff;
+    background: var(--background-card);
     border-radius: 1rem;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-style:groove;
+    border-color: var(--border-card);
+    box-shadow: 0 6px 12px var(--box-shadow-color);
     width: 250px;
     overflow: hidden;
     text-align: center;
@@ -336,36 +371,37 @@ nav a:hover {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-bottom: 2px solid #070606;
+    border-style: solid;
+    border-color: var(--border-primary);
+    border-bottom: 2px solid var(--border-primary);
     border-radius: 1rem;
 }
 
 .card h3 {
     margin: 1rem 0;
     font-size: 1.4rem;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .card p {
     padding: 0 1rem 1rem;
     font-size: 1rem;
-    color: #555;
+    color: var(--text-card);
 }
-
 .card a {
     text-decoration: none;
-    color: #795cd0;
+    color: var(--text-link);
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .card a:hover {
-    color: #ffcc00;
+    color: var(--text-link-hover);
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 24px var(--box-shadow-hover);
 }
 
 .nav-links {
@@ -391,14 +427,17 @@ nav a:hover {
         position: absolute;
         top: 4rem;
         left: -100%; /* Start off-screen */
-        background-color: #5ca4d0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: var(--background-header-footer);
+        box-shadow: 0 4px 6px var(--box-shadow-color);
         transition: all 0.3s ease-in-out;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
         padding: 1rem;
     }
-    
+    nav a{
+        font-size: 0.9rem;
+        margin-left:50px;
+    }
     .nav-links.show {
         display: flex;
         padding: 1rem 0;
@@ -421,7 +460,7 @@ nav a:hover {
         border-radius: 5px;
         right: -100%; /* Start hidden to the right */
         width: 100%;
-        background-color: #795cd0; /* Or any background color for visibility */
+        background-color: var(--background-header-footer); /* Or any background color for visibility */
         transition: right 0.5s ease-in-out; /* Smooth transition */
         z-index: 10;
     }
@@ -429,10 +468,10 @@ nav a:hover {
     .nav-links.show {
         right: 0; /* Slide in from the right */
     }
-    nav a {
+    nav a{
         font-size: 0.9rem;
+        margin-left:40px;
     }
-
     .card {
         width: 100%;
     }
@@ -448,8 +487,8 @@ nav a:hover {
 }
 
 footer {
-    background-color: #007bff;
-    color: white;
+    background-color: var(--background-header-footer);
+    color: var(--text-light);
     padding: 2rem 0;
     text-align: center;
 }
@@ -507,13 +546,13 @@ footer {
 }
 
 .footer-item a {
-    color: #ffcc00;
+    color: var(--text-link);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-item a:hover {
-    color: #fff;
+    color: var(--text-light);
 }
 
 .footer-bottom {
@@ -540,6 +579,7 @@ footer {
     display: flex;
     flex-direction: column;
 }
+
 .login-form,
 .register-form {
     position: fixed;
@@ -547,8 +587,8 @@ footer {
     right: -400px; /* Start off-screen */
     width: 400px;
     height: 100%;
-    background-color: #fff;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    background-color: var(--background-card);
+    box-shadow: -2px 0 5px var(--box-shadow-color);
     transition: right 0.3s ease; /* Animation for sliding */
     padding: 2rem;
     z-index: 1000; /* Ensure it appears on top */
@@ -560,7 +600,6 @@ footer {
     border-top-left-radius: 5rem;
     border-bottom-left-radius:2rem;
 }
-
 
 .login-form.active,
 .register-form.active {
@@ -584,16 +623,14 @@ footer {
     font-size: 1rem;
     margin-bottom: 1rem;
     align-items: center;
-    
 }
-
 
 .login-form button,
 .register-form button {
     width: 100%; /* Full width of the form */
     max-width: 400px; /* Optional: set a max width */
     padding: 1rem;
-    background-color: #795cd0;
+    background-color: var(--background-button);
     color: #fff;
     border: none;
     border-radius: 0.25rem;
@@ -604,10 +641,9 @@ footer {
     margin: 1rem 0rem 1rem 0rem ;
 }
 
-
 .login-form button:hover,
 .register-form button:hover {
-    background-color: #f081f6c3;
+    background-color: var(--text-link-hover);
 }
 .login-form .close-button,
 .register-form .close-button {
@@ -615,7 +651,7 @@ footer {
     border: none;
     font-size: 2rem;
     cursor: pointer;
-    color: #333;
+    color: var(--text-primary);
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
@@ -667,10 +703,11 @@ footer {
 }
 
 .user-email {
-    color: #f2e5e5;
+    color: var(--text-light);
 
 }
 .user-email:hover{
     border-radius: 10px;
+    background-color: white;
     color:black;
 }
