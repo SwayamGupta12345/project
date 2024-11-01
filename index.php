@@ -250,7 +250,7 @@ if ($sem_result->num_rows > 0) {
                 echo '<div class="card">';
                 echo '<img src="' . $row["image"] . '" alt="Image">';
                 echo '<h3>' . $row["subject"] . '</h3>';
-                echo '<p><a href= "subject_details.php?sem=' . $sem . '&subject=' . urlencode($row["subject"]) . '" target="_blank">' . $row["description"] . '</a></p>';
+                echo '<div class="desc"><p><a href= "subject_details.php?sem=' . $sem . '&subject=' . urlencode($row["subject"]) . '" target="_blank">' . $row["description"] . '</a></p></div>';
                 echo '</div>';
             }
         } else {
@@ -362,16 +362,16 @@ $conn->close();
         });
         
         
-        // Event listener for the login button
+        // Toggle login form on "Login" button click
         document.querySelector('.login-button').addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent the default link behavior
+            event.preventDefault(); // Prevent default link behavior
             document.getElementById('login-form').classList.toggle('active');
         });
-        
-        // Close button functionality for the login form
+
+        // Close login form on close button click
         document.getElementById('close-button').addEventListener('click', function () {
             document.getElementById('login-form').classList.remove('active');
-        });
+        })
         
         // Show registration form when "register first" is clicked
         document.getElementById('show-register').addEventListener('click', function (event) {
@@ -390,8 +390,7 @@ $conn->close();
         document.getElementById('close-register-button').addEventListener('click', function () {
             document.getElementById('register-form').classList.remove('active'); // Hide registration form
         });
-        
-        
+         
         </script>
 </body>
 </html>
