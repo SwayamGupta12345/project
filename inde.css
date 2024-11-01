@@ -293,7 +293,7 @@ nav a:hover {
 }
 
 .sems {
-    background: #795cd0;
+    background: #0077B6;
     height: 3.5rem;
     width: 100%;
     border: 3px solid white;
@@ -336,7 +336,7 @@ nav a:hover {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #070606;
     border-radius: 1rem;
 }
 
@@ -448,7 +448,7 @@ nav a:hover {
 }
 
 footer {
-    background-color: #795cd0;
+    background-color: #007bff;
     color: white;
     padding: 2rem 0;
     text-align: center;
