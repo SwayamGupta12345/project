@@ -1,0 +1,673 @@
+* {
+    box-sizing: border-box;
+    /* Include padding and border in element's total width and height */
+    margin: 0;
+    /* Remove default margins */
+    padding: 0;
+    /* Remove default padding */
+}
+
+body {
+    background-color: #caf0f8;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #03045e;
+    overflow-x: hidden;
+}
+hr{
+    border: 0;
+    height: 1px;
+}
+/* Header Styling */
+header {
+    background-color: #03045e;
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+h1, h2, h3 {
+    color: #0077B6; /* Medium blue for headings */
+}
+button {
+    background-color: #00B4D8; /* Light blue for button background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0077B6; /* Darker blue on hover */
+}
+input, select, textarea {
+    background-color: #90E0EF; /* Aqua blue for input backgrounds */
+    color: #03045E;
+    border: 1px solid #0077B6;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+a {
+    color: #0077B6;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00B4D8;
+}
+
+footer {
+    background-color: #03045E;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    /*position: fixed;*/
+    bottom: 0;
+    width: 100%;
+}
+
+/* Card or Section Styling */
+.section {
+    background-color: #CAF0F8;
+    border: 1px solid #0077B6;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+/* Header Title Styling */
+header h1 {
+    font-size: 2em;
+    margin: 0;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    background-color: #007bff;
+    height: 4rem;
+    padding: 0 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Style for navigation links */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.nav-links select {
+    padding: 5px;
+    font-size: 1em;
+    color: #333;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile View for Header */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .nav-links select {
+        max-width: 100%;
+        font-size: 1em;
+    }
+}
+
+/* User dropdown menu styling */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.user-email {
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.user-email:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdown content initially hidden */
+.dropdown-content {
+    margin-top: 20px;
+    display: none;
+    position: absolute;
+    background-color: white;
+    color: #333;
+    min-width: 220px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    z-index: 5;
+}
+.dropdown-content.show{
+    display: block;
+}
+/* Links within the dropdown */
+.dropdown-content a {
+    color: #333;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:hover {
+    background-color: #007bff;
+    color: white;
+    border-radius: 50px;
+}
+
+/* Show the dropdown on click */
+.user-dropdown.show .dropdown-content {
+    display: block;
+}
+
+/* Styling for Semester Select Dropdown */
+#semester-menu {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#semester-menu:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+#semester-menu option {
+    padding: 10px;
+    color: #333;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav a.home {
+    margin-right: auto;
+    padding-left: 3rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    color: #201c21;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    left: 1rem;
+}
+
+.burger div {
+    background-color: #fff;
+    height: 0.25rem;
+    width: 1.5rem;
+    margin: 0.2rem 0;
+    border-radius: 0.1rem;
+    transition: 0.3s ease;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1.75fr 2fr;
+    gap: 20px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container img {
+    border-radius: 1rem;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0.5rem;
+}
+
+.container p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.sems {
+    background: #795cd0;
+    height: 3.5rem;
+    width: 100%;
+    border: 3px solid white;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.SEMTEXT {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem 1rem 3rem 1rem;
+    margin: 1rem;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+    border-radius: 1rem;
+}
+
+.card h3 {
+    margin: 1rem 0;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.card p {
+    padding: 0 1rem 1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.card a {
+    text-decoration: none;
+    color: #795cd0;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.card a:hover {
+    color: #ffcc00;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-grow: 1;
+    gap: 1rem;
+    font-size: large;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links a {
+    display: block;
+}
+
+@media(max-width:790px){
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 4rem;
+        left: -100%; /* Start off-screen */
+        background-color: #795cd0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav-links.show {
+        display: flex;
+        padding: 1rem 0;
+        left: 0;
+        transition: all 0.3s ease-in-out;
+    }
+}
+@media (max-width: 790px) {
+
+    .burger {
+        display: flex;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        padding: 0.5rem;
+        border-radius: 5px;
+        right: -100%; /* Start hidden to the right */
+        width: 100%;
+        background-color: #795cd0; /* Or any background color for visibility */
+        transition: right 0.5s ease-in-out; /* Smooth transition */
+        z-index: 10;
+    }
+
+    .nav-links.show {
+        right: 0; /* Slide in from the right */
+    }
+    nav a {
+        font-size: 0.9rem;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .container img {
+        display: none;
+    }
+
+    .container {
+        display: grid;
+    }
+
+}
+
+footer {
+    background-color: #795cd0;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-item {
+    flex: 1;
+    min-width: 300px;
+    /* Minimum width for profile sections */
+    margin: 1rem;
+}
+
+.footer-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.profile-image {
+    border-radius: 50%;
+    width: 80px;
+    /* Adjust size as needed */
+    height: 80px;
+    /* Keep it circular */
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.footer-details h4 {
+    margin: 0 0 0.5rem 0;
+}
+
+.footer-item p {
+    margin: 0.5rem 0;
+}
+
+.footer-item ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-item ul li {
+    margin: 0.5rem 0;
+}
+
+.footer-item a {
+    color: #ffcc00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-item a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        /* Stack items on smaller screens */
+        align-items: center;
+    }
+
+    .footer-item {
+        width: 100%;
+        /* Full width for each profile */
+        margin-bottom: 1rem;
+        /* Space between stacked profiles */
+    }
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
+.login-form,
+.register-form {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Start off-screen */
+    width: 400px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease; /* Animation for sliding */
+    padding: 2rem;
+    z-index: 1000; /* Ensure it appears on top */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    padding-left: 2rem;
+    border-top-left-radius: 5rem;
+    border-bottom-left-radius:2rem;
+}
+
+
+.login-form.active,
+.register-form.active {
+    right: 0;
+    /* Slide in */
+}
+
+.login-form h2,
+.register-form h2 {
+    margin-bottom: 1rem;
+    text-align: center; /* Center heading text */
+}
+.login-form input,
+.register-form input {
+    width: 100%; /* Full width of the form */
+    max-width: 400px; /* Optional: set a max width */
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    
+}
+
+
+.login-form button,
+.register-form button {
+    width: 100%; /* Full width of the form */
+    max-width: 400px; /* Optional: set a max width */
+    padding: 1rem;
+    background-color: #795cd0;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: background-color 0.3s ease;
+    align-items: center;
+    margin: 1rem 0rem 1rem 0rem ;
+}
+
+
+.login-form button:hover,
+.register-form button:hover {
+    background-color: #f081f6c3;
+}
+.login-form .close-button,
+.register-form .close-button {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.register-form.active {
+    right: 0;
+    /* Slide in */
+}
+/* Styling for mobile screens (500px or less) */
+@media (max-width: 500px) {
+
+    .login-form,
+    .register-form {border-top-left-radius: 0rem;
+        border-bottom-left-radius:0rem;}
+
+
+    .login-form.active,
+    .register-form.active {
+        right: 0; /* Start from the right side, no off-screen */
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        border-radius: 0; /* Remove rounded corners */
+        padding: 1rem; /* Reduce padding to fit smaller screens */
+    }
+
+    .login-form h2,
+    .register-form h2 {
+        font-size: 1.5rem; /* Slightly reduce the font size for headings */
+    }
+
+    .login-form input,
+    .register-form input {
+        font-size: 0.875rem; /* Adjust input font size */
+        padding: 0.75rem; /* Reduce padding */
+    }
+
+    .login-form button,
+    .register-form button {
+        font-size: 1rem; /* Adjust button font size */
+        padding: 0.75rem; /* Reduce button padding */
+    }
+
+    .login-form .close-button,
+    .register-form .close-button {
+        font-size: 1.5rem; /* Reduce close button size */
+        margin-bottom: 1rem; /* Add some space below the close button */
+    }
+}
+
+.user-email {
+    color: #f2e5e5;
+
+}
+.user-email:hover{
+    border-radius: 10px;
+    color:black;
+}
