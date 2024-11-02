@@ -1,2 +1,2 @@
 <?php
-rishu@1234
+$some="rishu@1234";

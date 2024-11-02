@@ -132,13 +132,17 @@ $conn->close();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Learning Platform</title>
+    <title> Jaypee Learning Platform</title>
     <link rel="stylesheet" href="inde.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
+
 <header>
-<h1>Jaypee Learning Hub</h1>
+    <div class="logo-text">
+        <img src="jaypee_main_logo.jpeg" alt="Jaypee Learning Hub" class="logo">
+        <h1>Jaypee Learning Hub</h1>
+    </div>
 </header>
-<hr>
 <nav>
     <div class="burger" id="burger-menu">
         <div></div>
@@ -147,17 +151,18 @@ $conn->close();
     </div>
     <a class="home" href="#">HOME</a>
     <div class="nav-links" id="nav-links">
-        <select name="semester" id="semester-menu" onchange="navigateToSemester()">
-            <option value="">--Select Semester--</option>
-            <option value="sem1">I</option>
-            <option value="sem2">II</option>
-            <option value="sem3">III</option>
-            <option value="sem4">IV</option>
-            <option value="sem5">V</option>
-            <option value="sem6">VI</option>
-            <option value="sem7">VII</option>
-            <option value="sem8">VIII</option>
-        </select>
+    <select name="semester" id="semester-menu" onchange="navigateToSemester()" class="styled-select">
+    <option value="" disabled selected hidden>Select Semester</option>
+    <option value="sem1">I</option>
+    <option value="sem2">II</option>
+    <option value="sem3">III</option>
+    <option value="sem4">IV</option>
+    <option value="sem5">V</option>
+    <option value="sem6">VI</option>
+    <option value="sem7">VII</option>
+    <option value="sem8">VIII</option>
+</select>
+
        <!-- Conditionally show login or user email with dropdown -->
         <?php if (isset($_SESSION['user_email'])): ?>
             <div class="user-dropdown">
@@ -249,8 +254,8 @@ if ($sem_result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="card">';
                 echo '<img src="' . $row["image"] . '" alt="Image">';
-                echo '<h3>' . $row["subject"] . '</h3>';
-                echo '<div class="desc"><p><a href= "subject_details.php?sem=' . $sem . '&subject=' . urlencode($row["subject"]) . '" target="_blank">' . $row["description"] . '</a></p></div>';
+                echo '<h3><a href="subject_details.php?sem=' . $sem . '&subject=' . urlencode($row["subject"]) . '" target="_blank">' . $row["subject"] . '</a></h3>';
+                echo '<div class="desc"><p><a href="subject_details.php?sem=' . $sem . '&subject=' . urlencode($row["subject"]) . '" target="_blank">' . $row["description"] . '</a></p></div>';
                 echo '</div>';
             }
         } else {
@@ -264,42 +269,7 @@ if ($sem_result->num_rows > 0) {
 $conn->close();
 ?>
 </div>
-
-<footer>
-    <div class="footer-container">
-        <div class="footer-content">
-            <div class="footer-item">
-                <div class="footer-profile">
-                    <img src="path/to/your-image1.jpg" alt="Profile Image 1" class="profile-image">
-                    <div class="footer-details">
-                        <h4>Your Name 1</h4>
-                        <p>Email: <a href="mailto:youremail1@example.com">youremail1@example.com</a></p>
-                        <ul>
-                            <li><a href="https://www.linkedin.com/in/yourprofile1" target="_blank">LinkedIn</a></li>
-                            <li><a href="https://github.com/yourprofile1" target="_blank">GitHub</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-item">
-                <div class="footer-profile">
-                    <img src="path/to/your-image2.jpg" alt="Profile Image 2" class="profile-image">
-                    <div class="footer-details">
-                        <h4>Your Name 2</h4>
-                        <p>Email: <a href="mailto:youremail2@example.com">youremail2@example.com</a></p>
-                        <ul>
-                            <li><a href="https://www.linkedin.com/in/yourprofile2" target="_blank">LinkedIn</a></li>
-                            <li><a href="https://github.com/yourprofile2" target="_blank">GitHub</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Your Company. All Rights Reserved.</p>
-        </div>
-    </div>
-</footer>
+<?php include 'footer.php'; ?>
 <script>
         function navigateToSemester() {
             const semester = document.getElementById("semester-menu").value;
